@@ -44,7 +44,7 @@ module.exports = function(options) {
 				return new Promise(function(resolve) {
 					debug(`Processing file '${file.path}'.`);
 					
-					assert(file.content !== null, 'hoast-convert: No content found on file, read module needs to be called before this.');
+					assert(file.content !== null, 'hoast-frontmatter: No content found on file, read module needs to be called before this.');
 					// Has to be a string and match patterns.
 					if (file.content.type !== 'string' || (options.patterns && options.patterns.length > 0 && !nanomatch.any(file.path, options.patterns))) {
 						debug(`File not valid for processing.`);
