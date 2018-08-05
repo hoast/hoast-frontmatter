@@ -1,9 +1,15 @@
 # Hoast-frontmatter
 Extracts frontmatter from files.
 
-> As the name suggest this is a [Hoast](https://github.com/hoast/hoast#readme) module.
+> As the name suggest this is a [hoast](https://github.com/hoast/hoast#readme) module.
 
 ## Usage
+
+Install using [npm](https://npmjs.com).
+
+```
+[$ npm install hoast-frontmatter](https://www.npmjs.com/package/hoast-frontmatter)
+```
 
 ### Parameters
 
