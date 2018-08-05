@@ -5,10 +5,10 @@ Extracts frontmatter from files.
 
 ## Usage
 
-Install using [npm](https://npmjs.com).
+Install [hoast-frontmatter](https://npmjs.com/package/hoast-frontmatter) using [npm](https://npmjs.com).
 
 ```
-[$ npm install hoast-frontmatter](https://www.npmjs.com/package/hoast-frontmatter)
+$ npm install hoast-frontmatter
 ```
 
 ### Parameters
@@ -47,4 +47,5 @@ Hoast(__dirname)
 > By default it will extract the YAML frontmatter from any markdown files.
 
 ## License
+
 [ISC license](https://github.com/hoast/hoast-filter/blob/master/LICENSE)
