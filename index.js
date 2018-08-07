@@ -16,7 +16,7 @@ const validateOptions = function(options) {
 		assert(typeof(options.options) === 'object', 'hoast-frontmatter: options must be of type object.');
 	}
 	if (options.patterns) {
-		assert(Array.isArray(options.patterns)  && options.patterns.length, 'hoast-frontmatter: patterns needs must be specified and an array of strings.');
+		assert(typeof(options.patterns) === 'string' || (Array.isArray(options.patterns) && options.patterns.length > 0 && typeof(options.patterns[0] === 'string')), 'hoast-frontmatter: patterns must be of type string or and an array of strings.');
 	}
 };
 
@@ -32,7 +32,8 @@ module.exports = function(options) {
 	options = Object.assign({
 		options: {},
 		patterns: [
-			'**/*.md'
+			'**/*.md',
+			'**/*.markdown'
 		]
 	}, options);
 	
@@ -46,7 +47,7 @@ module.exports = function(options) {
 					
 					assert(file.content !== null, 'hoast-frontmatter: No content found on file, read module needs to be called before this.');
 					// Has to be a string and match patterns.
-					if (file.content.type !== 'string' || (options.patterns && options.patterns.length > 0 && !nanomatch.any(file.path, options.patterns))) {
+					if (file.content.type !== 'string' || (options.patterns && !nanomatch.any(file.path, options.patterns))) {
 						debug(`File not valid for processing.`);
 						return resolve();
 					}

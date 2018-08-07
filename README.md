@@ -1,4 +1,5 @@
-# Hoast-frontmatter
+# hoast-frontmatter
+
 Extracts frontmatter from files.
 
 > As the name suggest this is a [hoast](https://github.com/hoast/hoast#readme) module.
@@ -15,8 +16,8 @@ $ npm install hoast-frontmatter
 
 * `options` **{String}**: [gray-matter](https://github.com/jonschlinkert/gray-matter#gray-matter) options, see it's documentation for more detail.
 	* Required: `no`
-* `patterns` **{Array of strings}**: Gets used to match files using glob patterns. See [nanomatch](https://github.com/micromatch/nanomatch#readme) for more details on the patterns.
-	* Default: `[ '**/*.md' ]`
+* `patterns` **{Array|strings}**: A string or an array of strings which gets used to match files using glob patterns. See [nanomatch](https://github.com/micromatch/nanomatch#readme) for more details on the patterns.
+	* Default: `[ '**/*.md', '**/*.markdown' ]`
 
 ### Example
 
