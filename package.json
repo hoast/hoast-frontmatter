@@ -1,14 +1,14 @@
 {
   "author": "Ron Dekker",
   "name": "hoast-frontmatter",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Hoast module used to extract frontmatter from files.",
   "license": "ISC",
   "keywords": [
     "hoast",
     "frontmatter"
   ],
-	"engines": {
+  "engines": {
     "node": ">=7.8.0"
   },
   "main": "index.js",
@@ -20,9 +20,9 @@
   "bugs": {
     "url": "https://github.com/hoast/hoast-frontmatter/issues"
   },
-	"peerDependencies": {
-		"hoast": "^0.0.1"
-	},
+  "peerDependencies": {
+    "hoast": "^0.0.3"
+  },
   "dependencies": {
     "gray-matter": "^4.0.1",
     "nanomatch": "^1.2.13"
