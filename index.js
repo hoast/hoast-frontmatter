@@ -11,6 +11,10 @@ const nanomatch = require('nanomatch'),
  * @param {Object} options The options.
  */
 const validateOptions = function(options) {
+	if (!options) {
+		return; // Since no option is required.
+	}
+	
 	assert(typeof(options) === 'object', 'hoast-frontmatter: options must be of type object.');
 	if (options.options) {
 		assert(typeof(options.options) === 'object', 'hoast-frontmatter: options must be of type object.');
