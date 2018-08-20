@@ -14,7 +14,7 @@ $ npm install hoast-frontmatter
 
 ### Parameters
 
-* `options` **{String}**: [gray-matter](https://github.com/jonschlinkert/gray-matter#gray-matter) options, see it's documentation for more detail.
+* `options` **{String}**: [gray-matter](https://github.com/jonschlinkert/gray-matter#gray-matter) options, see it`s documentation for more detail.
 	* Required: `no`
 * `patterns` **{Array|strings}**: A string or an array of strings which gets used to match files using glob patterns. See [nanomatch](https://github.com/micromatch/nanomatch#readme) for more details on the patterns.
 	* Default: `[ '**/*.md', '**/*.markdown' ]`
@@ -35,9 +35,9 @@ $ npm install hoast-frontmatter
 **Script**
 
 ```javascript
-const Hoast = require('hoast');
+const Hoast = require(`hoast`);
 const read = Hoast.read,
-      frontmatter = require('hoast-frontmatter');
+      frontmatter = require(`hoast-frontmatter`);
 
 Hoast(__dirname)
   .use(read())
