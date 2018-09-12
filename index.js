@@ -58,7 +58,7 @@ module.exports = function(options) {
 					debug(`File content is valid.`);
 					
 					// Extract the frontmatter.
-					let content = grayMatter(file.content.data, options.options);
+					const content = grayMatter(file.content.data, options.options);
 					// Write to file`s content and frontmatter.
 					file.content.data = content.content;
 					file.frontmatter = content.data;
