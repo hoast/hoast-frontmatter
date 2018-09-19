@@ -1,7 +1,8 @@
-[![Version master branch](https://img.shields.io/github/package-json/v/hoast/hoast-frontmatter.svg?label=master&style=flat-square)](https://github.com/hoast/hoast-frontmatter#readme)
 [![Version npm package](https://img.shields.io/npm/v/hoast-frontmatter.svg?label=npm&style=flat-square)](https://npmjs.com/package/hoast-frontmatter)
+[![Version GitHub master branch](https://img.shields.io/github/package-json/v/hoast/hoast-frontmatter.svg?label=github&style=flat-square)](https://github.com/hoast/hoast-frontmatter#readme)
+[![Version GitHub develop branch](https://img.shields.io/github/package-json/v/hoast/hoast-frontmatter/develop.svg?label=github/develop&style=flat-square)](https://github.com/hoast/hoast-frontmatter/tree/develop#readme)
 [![License agreement](https://img.shields.io/github/license/hoast/hoast-frontmatter.svg?style=flat-square)](https://github.com/hoast/hoast-frontmatter/blob/master/LICENSE)
-[![Travis-ci build status](https://img.shields.io/travis-ci/hoast/hoast-frontmatter.svg?branch=master&style=flat-square)](https://travis-ci.org/hoast/hoast-frontmatter)
+[![Travis-ci build status](https://img.shields.io/travis-ci/hoast/hoast-frontmatter.svg?label=travis&branch=master&style=flat-square)](https://travis-ci.org/hoast/hoast-frontmatter)
 [![Open issues on GitHub](https://img.shields.io/github/issues/hoast/hoast-frontmatter.svg?style=flat-square)](https://github.com/hoast/hoast-frontmatter/issues)
 
 # hoast-frontmatter
@@ -20,10 +21,18 @@ $ npm install hoast-frontmatter
 
 ### Parameters
 
-* `options` **{String}**: [gray-matter](https://github.com/jonschlinkert/gray-matter#gray-matter) options, see it`s documentation for more detail.
+* `options`: [gray-matter options](https://github.com/jonschlinkert/gray-matter#options), see it`s documentation for more detail.
+  * Type: `Object`
 	* Required: `no`
-* `patterns` **{Array|strings}**: A string or an array of strings which gets used to match files using glob patterns. See [nanomatch](https://github.com/micromatch/nanomatch#readme) for more details on the patterns.
+* `patterns`: Glob patterns to match file paths with. If the engine function is set it will only give the function any files matching the pattern.
+  * Type: `String` or `Array of strings`
 	* Default: `[ '**/*.md', '**/*.markdown' ]`
+* `patternOptions`: Options for the glob pattern matching. See [planckmatch options](https://github.com/redkenrok/node-planckmatch#options) for more details on the pattern options.
+  * Type: `Object`
+  * Default: `{ globstar: true }`
+* `patternOptions.all`: This options is added to `patternOptions`, and determines whether all patterns need to match instead of only one.
+  * Type: `Boolean`
+  * Default: `false`
 
 ### Example
 

@@ -1,7 +1,7 @@
-// Dependecy modules.
+// Dependency modules.
 const test = require(`ava`);
 // Custom module.
-const Frontmatter = require(`.`);
+const Frontmatter = require(`../library`);
 
 test(`frontmatter`, async function(t) {
 	// Create module options.
@@ -48,6 +48,7 @@ test(`frontmatter`, async function(t) {
 	
 	// Test module.
 	const frontmatter = Frontmatter(options);
+	frontmatter.before();
 	await frontmatter({}, files);
 	// Compare files.
 	t.deepEqual(files, filesOutcome);
