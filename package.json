@@ -4,7 +4,7 @@
     "url": "https://rondekker.nl"
   },
   "name": "hoast-frontmatter",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0",
   "description": "Hoast module used to extract frontmatter from files.",
   "license": "ISC",
   "keywords": [
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "gray-matter": "^4.0.1",
-    "planckmatch": "^0.1.0-alpha.1"
+    "planckmatch": "^0.1.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",

@@ -32,10 +32,10 @@ $ npm install hoast-frontmatter
 	* Required: `no`
 * `patterns`: Glob patterns to match file paths with. If the engine function is set it will only give the function any files matching the pattern.
   * Type: `String` or `Array of strings`
-	* Default: `[ '**/*.md', '**/*.markdown' ]`
+	* Default: `[ '*.md', '*.markdown' ]`
 * `patternOptions`: Options for the glob pattern matching. See [planckmatch options](https://github.com/redkenrok/node-planckmatch#options) for more details on the pattern options.
   * Type: `Object`
-  * Default: `{ globstar: true }`
+  * Default: `{}`
 * `patternOptions.all`: This options is added to `patternOptions`, and determines whether all patterns need to match instead of only one.
   * Type: `Boolean`
   * Default: `false`

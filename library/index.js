@@ -86,12 +86,10 @@ module.exports = function(options) {
 	options = Object.assign({
 		options: null,
 		patterns: [
-			`**/*.md`,
-			`**/*.markdown`
+			`*.md`,
+			`*.markdown`
 		],
-		patternOptions: {
-			globstar: true
-		}
+		patternOptions: {}
 	}, options);
 	
 	const mod = async function(hoast, files) {
