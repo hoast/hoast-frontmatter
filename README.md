@@ -1,10 +1,15 @@
-[![Version npm package](https://img.shields.io/npm/v/hoast-frontmatter.svg?label=npm&style=flat-square)](https://npmjs.com/package/hoast-frontmatter)
-[![Version npm package @next](https://img.shields.io/npm/v/hoast-frontmatter/next.svg?label=npm/next&style=flat-square)](https://npmjs.com/package/hoast-frontmatter/v/next)
-[![Version GitHub master branch](https://img.shields.io/github/package-json/v/hoast/hoast-frontmatter.svg?label=github&style=flat-square)](https://github.com/hoast/hoast-frontmatter#readme)
-[![Version GitHub develop branch](https://img.shields.io/github/package-json/v/hoast/hoast-frontmatter/develop.svg?label=github/develop&style=flat-square)](https://github.com/hoast/hoast-frontmatter/tree/develop#readme)
-[![License agreement](https://img.shields.io/github/license/hoast/hoast-frontmatter.svg?style=flat-square)](https://github.com/hoast/hoast-frontmatter/blob/master/LICENSE)
-[![Travis-ci build status](https://img.shields.io/travis-ci/hoast/hoast-frontmatter.svg?label=travis&branch=master&style=flat-square)](https://travis-ci.org/hoast/hoast-frontmatter)
-[![Open issues on GitHub](https://img.shields.io/github/issues/hoast/hoast-frontmatter.svg?style=flat-square)](https://github.com/hoast/hoast-frontmatter/issues)
+<div align="center">
+  
+  [![npm package @latest](https://img.shields.io/npm/v/hoast-frontmatter.svg?label=npm@latest&style=flat-square&maxAge=3600)](https://npmjs.com/package/hoast-frontmatter)
+  [![npm package @next](https://img.shields.io/npm/v/hoast-frontmatter/next.svg?label=npm@next&style=flat-square&maxAge=3600)](https://npmjs.com/package/hoast-frontmatter/v/next)
+  
+  [![Travis-ci status](https://img.shields.io/travis-ci/hoast/hoast-frontmatter.svg?branch=master&label=test%20status&style=flat-square&maxAge=3600)](https://travis-ci.org/hoast/hoast-frontmatter)
+  [![CodeCov coverage](https://img.shields.io/codecov/c/github/hoast/hoast-frontmatter/master.svg?label=test%20coverage&style=flat-square&maxAge=3600)](https://codecov.io/gh/hoast/hoast-frontmatter)
+  
+  [![License agreement](https://img.shields.io/github/license/hoast/hoast-frontmatter.svg?style=flat-square&maxAge=86400)](https://github.com/hoast/hoast-frontmatter/blob/master/LICENSE)
+  [![Open issues on GitHub](https://img.shields.io/github/issues/hoast/hoast-frontmatter.svg?style=flat-square&maxAge=86400)](https://github.com/hoast/hoast-frontmatter/issues)
+  
+</div>
 
 # hoast-frontmatter
 
