@@ -9,7 +9,7 @@ test(`frontmatter`, async function(t) {
 		options: {
 			excerpt: true
 		},
-		patterns: `**/*.md`
+		patterns: `*.md`
 	};
 	
 	// Create dummy files.
