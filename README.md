@@ -84,14 +84,14 @@ Hoast(__dirname)
   .use(read())
   .use(frontmatter({
     engine: function(filePath, content) {
-      result = matter(content, {
+      const result = matter(content, {
         excerpt: true
       });
       
       return {
         content: result.content,
-        frontmatter: Object.assign({ excerpt: result.excerpt }, result.data);
-      }
+        frontmatter: Object.assign({ excerpt: result.excerpt }, result.data)
+      };
     }
   }))
   .process();
