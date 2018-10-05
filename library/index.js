@@ -5,7 +5,7 @@ const assert = require(`assert`);
 // Dependency modules.
 const parse = require(`planckmatch/parse`),
 	match = require(`planckmatch/match`);
-const grayMatter = require(`gray-matter`);
+const extract = require(`./extract`);
 
 /**
  * Validates the module options.
@@ -13,25 +13,47 @@ const grayMatter = require(`gray-matter`);
  */
 const validateOptions = function(options) {
 	if (!options) {
-		return; // Since no option is required.
+		// Return since no option is required.
+		return;
 	}
 	
 	assert(
 		typeof(options) === `object`,
 		`hoast-frontmatter: options must be of type object.`
 	);
-	if (options.options) {
+	
+	/**
+	 * Validate a potential array.
+	 * @param {Object} property Name of property to validate.
+	 * @param {String} type Object type.
+	 */
+	const validateArray = function(property, type) {
+		property = options[property];
+		const message = `hoast-frontmatter: ${property} must be of type ${type} or an array of ${type}s.`;
+		if (Array.isArray(property)) {
+			property.forEach(function(item) {
+				assert(
+					typeof(item) === type,
+					message
+				);
+			});
+		} else {
+			assert(
+				typeof(property) === type,
+				message
+			);
+		}
+	};
+	
+	if (options.engine) {
 		assert(
-			typeof(options.options) === `object`,
-			`hoast-frontmatter: options must be of type object.`
+			typeof(options.engine) === `function`,
+			`hoast-frontmatter: engine must be of type function.`
 		);
 	}
 	
 	if (options.patterns) {
-		assert(
-			typeof(options.patterns) === `string` || (Array.isArray(options.patterns) && options.patterns.length > 0 && typeof(options.patterns[0] === `string`)),
-			`hoast-frontmatter: patterns must be of type string or an array of string.`
-		);
+		validateArray(`patterns`, `string`);
 	}
 	if (options.patternOptions) {
 		assert(
@@ -72,7 +94,7 @@ const isMatch = function(value, expressions, all) {
 };
 
 /**
- * Extracts the frontmatter from files.
+ * Extracts the front matter from files.
  * @param {Object} options The module options.
  */
 module.exports = function(options) {
@@ -81,10 +103,8 @@ module.exports = function(options) {
 	validateOptions(options);
 	debug(`Validated options.`);
 	options = Object.assign({
-		options: null,
 		patterns: [
-			`*.md`,
-			`*.markdown`
+			`*.md`
 		],
 		patternOptions: {}
 	}, options);
@@ -112,17 +132,13 @@ module.exports = function(options) {
 				return;
 			}
 			
-			// Extract the frontmatter.
-			const content = grayMatter(file.content.data, options.options);
-			// Write to file`s content and frontmatter.
-			file.content.data = content.content;
-			file.frontmatter = content.data;
-			// If excerpt available add this to the content as well.
-			if (content.excerpt) {
-				file.content.excerpt = content.excerpt;
-			}
+			// Extract the front matter.
+			const result = options.engine ? options.engine(file.path, file.content.data) : extract(file.path, file.content.data);
+			// Write to file`s content and front matter.
+			file.content.data = result.content;
+			file.frontmatter = result.frontmatter;
 			
-			debug(`File frontmatter extracted.`);
+			debug(`File frontmatter extracted from content.`);
 		}, mod);
 	};
 	

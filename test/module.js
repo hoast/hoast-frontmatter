@@ -3,27 +3,31 @@ const test = require(`ava`);
 // Custom module.
 const Frontmatter = require(`../library`);
 
-test(`frontmatter`, async function(t) {
-	// Create module options.
-	const options = {
-		options: {
-			excerpt: true
-		},
-		patterns: `*.md`
-	};
-	
+test(`default`, async function(t) {
 	// Create dummy files.
 	const files = [{
 		path: `a.txt`,
 		content: {
 			type: `string`,
-			data: `---\ntitle: a\n---\ncontent`
+			data: `{"title": "a"} content`
 		}
 	}, {
 		path: `b.md`,
 		content: {
 			type: `string`,
-			data: `---\ntitle: b\n---\ncontent---more`
+			data: `{"title": "b"} content`
+		}
+	}, {
+		path: `c.md`,
+		content: {
+			type: `string`,
+			data: `{"title": "c"}, {"title": "d"} content`
+		}
+	}, {
+		path: `d.md`,
+		content: {
+			type: `string`,
+			data: `{"title": "d", "author": { "name": "john" }} content`
 		}
 	}];
 	
@@ -32,22 +36,42 @@ test(`frontmatter`, async function(t) {
 		path: `a.txt`,
 		content: {
 			type: `string`,
-			data: `---\ntitle: a\n---\ncontent`
+			data: `{"title": "a"} content`
 		}
 	}, {
 		path: `b.md`,
 		content: {
 			type: `string`,
-			data: `content---more`,
-			excerpt: `content`
+			data: `content`
 		},
 		frontmatter: {
 			title: `b`
 		}
+	}, {
+		path: `c.md`,
+		content: {
+			type: `string`,
+			data: `, {"title": "d"} content`
+		},
+		frontmatter: {
+			title: `c`
+		}
+	}, {
+		path: `d.md`,
+		content: {
+			type: `string`,
+			data: `content`
+		},
+		frontmatter: {
+			title: `d`,
+			author: {
+				name: `john`
+			}
+		}
 	}];
 	
 	// Test module.
-	const frontmatter = Frontmatter(options);
+	const frontmatter = Frontmatter();
 	frontmatter.before();
 	await frontmatter({}, files);
 	// Compare files.

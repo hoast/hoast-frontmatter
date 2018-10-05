@@ -13,7 +13,7 @@
 
 # hoast-frontmatter
 
-Extracts frontmatter from files.
+Extracts frontmatter from files. By default it only extracts `JSON` at the top of a file, but can easily be extended using the engine option.
 
 > As the name suggest this is a [hoast](https://github.com/hoast/hoast#readme) module.
 
@@ -27,12 +27,12 @@ $ npm install hoast-frontmatter
 
 ### Parameters
 
-* `options`: [gray-matter options](https://github.com/jonschlinkert/gray-matter#options), see it`s documentation for more detail.
-  * Type: `Object`
-	* Required: `no`
+* `engine`: Function to overwrite default frontmatter extraction. Function should accept two arguments the file path and content both of type string. The return should be an object with a `content` and `frontmatter` property both of type string.
+  * Type: `Function`
+  * Required: `no`
 * `patterns`: Glob patterns to match file paths with. If the engine function is set it will only give the function any files matching the pattern.
   * Type: `String` or `Array of strings`
-	* Default: `[ '*.md', '*.markdown' ]`
+	* Default: `[ '*.md' ]`
 * `patternOptions`: Options for the glob pattern matching. See [planckmatch options](https://github.com/redkenrok/node-planckmatch#options) for more details on the pattern options.
   * Type: `Object`
   * Default: `{}`
@@ -40,9 +40,9 @@ $ npm install hoast-frontmatter
   * Type: `Boolean`
   * Default: `false`
 
-### Example
+### Examples
 
-**Cli**
+**CLI**
 
 ```json
 {
@@ -66,7 +66,38 @@ Hoast(__dirname)
   .process();
 ```
 
-> By default it will extract the YAML frontmatter from any markdown files.
+> By default it will extract the JSON frontmatter from any `.md` files.
+
+**CLI**
+
+`engine` option is not compatible with the CLI tool as it requires a reference to a self specified function.
+
+**Script**
+
+```javascript
+const Hoast = require(`hoast`);
+const read = Hoast.read,
+      frontmatter = require(`hoast-frontmatter`);
+const matter = require(`gray-matter`);
+
+Hoast(__dirname)
+  .use(read())
+  .use(frontmatter({
+    engine: function(filePath, content) {
+      result = matter(content, {
+        excerpt: true
+      });
+      
+      return {
+        content: result.content,
+        frontmatter: Object.assign({ excerpt: result.excerpt }, result.data);
+      }
+    }
+  }))
+  .process();
+```
+
+> Extract the `YAML` frontmatter and an excerpt from any `.md` files using [gray-matter](https://github.com/jonschlinkert/gray-matter#readme).
 
 ## License
 

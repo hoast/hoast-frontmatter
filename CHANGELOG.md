@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.1.0 (Unreleased)
+For hoast `v1.0.0`
+## Added
+- `engine` option added, which allows a custom extraction function to be specified.
+- Examples for new engine function added to `README.md`.
+- Tests updated to reflect new changes.
+## Removed
+- `*.markdown` removed from patterns by default.
+- `gray-matter` dependency removed, which limits the front matter extraction using the default settings.
+
 ## 1.0.1 (2018-09-28)
 For hoast `v1.0.0`.
 ### Changed
