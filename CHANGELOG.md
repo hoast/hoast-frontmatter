@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.0 (Unreleased)
+## 1.1.0 (2018-10-05)
 For hoast `v1.0.0`
 ## Added
 - `engine` option added, which allows a custom extraction function to be specified.
