@@ -72,7 +72,6 @@ test(`default`, async function(t) {
 	
 	// Test module.
 	const frontmatter = Frontmatter();
-	frontmatter.before();
 	await frontmatter({}, files);
 	// Compare files.
 	t.deepEqual(files, filesOutcome);

@@ -112,7 +112,7 @@ module.exports = function(options) {
 	const mod = async function(hoast, files) {
 		debug(`Running module.`);
 		// Loop through files.
-		files.map(function(file) {
+		files.forEach(function(file) {
 			debug(`Processing file '${file.path}'.`);
 			
 			// Check if read module has been used.
@@ -141,16 +141,12 @@ module.exports = function(options) {
 			debug(`File frontmatter extracted from content.`);
 		}, mod);
 	};
-	
-	mod.before = function() {
-		debug(`Running module before.`);
 		
-		// Parse glob patterns into regular expressions.
-		if (options.patterns) {
-			this.expressions = parse(options.patterns, options.patternOptions, true);
-			debug(`Patterns parsed into expressions: ${this.expressions}.`);
-		}
-	};
+	// Parse glob patterns into regular expressions.
+	if (options.patterns) {
+		mod.expressions = parse(options.patterns, options.patternOptions, true);
+		debug(`Patterns parsed into expressions: ${mod.expressions}.`);
+	}
 	
 	return mod;
 };

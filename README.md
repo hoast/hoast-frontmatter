@@ -22,7 +22,7 @@ Extracts frontmatter from files. By default it only extracts `JSON` at the top o
 Install [hoast-frontmatter](https://npmjs.com/package/hoast-frontmatter) using [npm](https://npmjs.com).
 
 ```
-$ npm install hoast-frontmatter
+$ npm install --save hoast-frontmatter
 ```
 
 ### Parameters
@@ -101,4 +101,4 @@ Hoast(__dirname)
 
 ## License
 
-[ISC license](https://github.com/hoast/hoast-filter/blob/master/LICENSE)
+[ISC license](https://github.com/hoast/hoast-frontmatter/blob/master/LICENSE)
