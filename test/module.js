@@ -1,7 +1,30 @@
 // Dependency modules.
-const test = require(`ava`);
+const Hoast = require(`hoast`),
+	test = require(`ava`);
 // Custom module.
 const Frontmatter = require(`../library`);
+
+/**
+ * Emulates a simplified Hoast process for testing purposes.
+ * @param {Object} options Hoast options.
+ * @param {Function} mod Module function.
+ * @param {Array of objects} files The files to process and return.
+ */
+const emulateHoast = async function(options, mod, files) {
+	const hoast = Hoast(__dirname, options);
+	
+	if (mod.before) {
+		await mod.before(hoast);
+	}
+	
+	files = await mod(hoast, files);
+	
+	if (mod.after) {
+		await mod.after(hoast);
+	}
+	
+	return files;
+};
 
 test(`default`, async function(t) {
 	// Create dummy files.
@@ -71,8 +94,12 @@ test(`default`, async function(t) {
 	}];
 	
 	// Test module.
-	const frontmatter = Frontmatter();
-	await frontmatter({}, files);
+	await emulateHoast(
+		{},
+		Frontmatter(),
+		files
+	);
+	
 	// Compare files.
 	t.deepEqual(files, filesOutcome);
 });
