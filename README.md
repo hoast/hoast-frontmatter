@@ -98,7 +98,3 @@ Hoast(__dirname)
 ```
 
 > Extract the `YAML` frontmatter and an excerpt from any `.md` files using [gray-matter](https://github.com/jonschlinkert/gray-matter#readme).
-
-## License
-
-[ISC license](https://github.com/hoast/hoast-frontmatter/blob/master/LICENSE)
