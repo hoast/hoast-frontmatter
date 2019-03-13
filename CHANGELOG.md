@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.2 (2019-03-13)
+### Changed
++ Updated dependencies and development dependencies.
+
 ## 1.2.1 (2018-10-24)
 For hoast `v1.1.1`
 ### Changed
@@ -7,12 +11,10 @@ For hoast `v1.1.1`
 - Updated to reflect changes to `hoast`'s helpers.
 
 ## 1.2.0 (2018-10-18)
-For hoast `v1.0.0`.
 ### Changed
 - Reduced module complexity by using new `hoast.helper.parse` and `hoast.helper.match` helper functions.
 
 ## 1.1.0 (2018-10-05)
-For hoast `v1.0.0`
 ## Added
 - `engine` option added, which allows a custom extraction function to be specified.
 - Examples for new engine function added to `README.md`.
@@ -22,7 +24,6 @@ For hoast `v1.0.0`
 - `gray-matter` dependency removed, which limits the front matter extraction using the default settings.
 
 ## 1.0.1 (2018-09-28)
-For hoast `v1.0.0`.
 ### Changed
 - Updated `planckmatch` module from version `1.0.0` to `1.0.1`.
 
